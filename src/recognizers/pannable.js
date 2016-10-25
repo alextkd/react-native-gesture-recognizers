@@ -1,6 +1,6 @@
 'use strict';
-
-import React, { PropTypes, Component, View, PanResponder, Animated } from 'react-native';
+import React, {PropTypes, PureComponent} from 'react';
+import {View, PanResponder, Animated } from 'react-native';
 
 const initialState = {
   absoluteChangeX: 0,
@@ -20,9 +20,9 @@ const propTypes = {
 export default ({
   setGestureState = true
 } = {}) => BaseComponent => {
-  return class extends Component {
+  return class extends PureComponent {
 
-    static propTypes = propTypes
+    static propTypes = propTypes;
 
     constructor(props, context) {
       super(props, context);
@@ -98,7 +98,7 @@ export default ({
       this.lastX = this.absoluteChangeX;
       this.lastY = this.absoluteChangeY;
       onPanEnd && onPanEnd(); // eslint-disable-line no-unused-expressions
-    }
+    };
 
     render() {
       const {

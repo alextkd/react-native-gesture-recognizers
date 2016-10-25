@@ -1,6 +1,6 @@
 'use strict';
-
-import React, { PropTypes, Component, View, PanResponder } from 'react-native';
+import React, {PropTypes, PureComponent} from 'react';
+import { View, PanResponder } from 'react-native';
 import isValidSwipe from '../utils/isValidSwipe';
 
 const directions = {
@@ -34,7 +34,7 @@ const swipeable = ({
   const checkHorizontal = horizontal || (left || right);
   const checkVertical = vertical || (up || down);
 
-  return class extends Component {
+  return class extends PureComponent {
 
     static propTypes = propTypes;
 
@@ -155,7 +155,7 @@ const swipeable = ({
       this.velocityProp = null;
       this.distanceProp = null;
       this.swipeDirection = null;
-    }
+    };
 
     render() {
       const {
